@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  background-color: white;
+}
+
+.Header {
+  width: 95%;
+  margin: 15px auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border:1px solid green; */
+}
+
+.header_left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header_right{
+    margin-left: auto;
+}
+
+.logo {
+  background-image: "../../Image/coinLogo.png";
+}

@@ -1,0 +1,31 @@
+
+.container{
+    display: flex;
+}
+.Nav{
+    font-size: 16px;
+}
+
+.Nav Button{
+    margin:10px 5px;
+    font-weight: 600;
+}
+
+.search{
+    margin-top: 10px;
+    margin-left: auto;
+    font-weight: 600;
+}
+
+/* .Nav :first-child :after{
+    content:"|";
+    color:darkgray;
+} */
+/* .watchlist{
+    display: inline-block;
+}
+
+.watchlist :after{
+    content:"|";
+    color:darkgray;
+} */

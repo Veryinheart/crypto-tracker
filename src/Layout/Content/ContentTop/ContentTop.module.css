@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 1px solid green; */
+  margin: 40px 0;
+}
+
+.top_left {
+ 
+  border: 1px solid pink;
+}
+.top_right {
+
+  margin-left: auto;
+}

@@ -1,0 +1,16 @@
+.container{
+    width: 100%;
+    background-color: #FBFCFD;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.top{
+    width: 95%;
+}
+
+.table{
+    width:95%;
+}

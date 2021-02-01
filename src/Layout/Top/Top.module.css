@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  border-bottom: 1px solid rgb(231, 230, 230);
+  justify-content: center;
+  display: flex;
+  height: 50px;
+  background-color: white;
+}
+.top {
+  width: 95%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top_left span {
+  color: rgb(88, 102, 126);
+}
+
+.top_left span a {
+  margin-left: 3px;
+  color: royalblue;
+}
+.top_left span a:hover {
+  color: blue;
+}
+
+.top_left span::after {
+  content: "•";
+  margin: 0px 5px;
+  color: rgb(217, 214, 228);
+}
+
+.top_left :last-child::after {
+  content: "";
+}
+
+.top_right {
+  display: flex;
+  margin-left: auto;
+}

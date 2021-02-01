@@ -1,0 +1,16 @@
+.container {
+  margin-left: auto;
+}
+
+.header_right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search {
+  margin-right: 15px;
+}
+.bell {
+  margin: 0 5px;
+}

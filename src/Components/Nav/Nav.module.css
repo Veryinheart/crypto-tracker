@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px 0;
+}
+.menu span {
+  margin: 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.menu span a {
+  color: rgb(34, 37, 49);
+}
+.menu span a:hover {
+  color: blue;
+}
