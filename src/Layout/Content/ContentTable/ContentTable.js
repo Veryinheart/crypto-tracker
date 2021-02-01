@@ -1,11 +1,9 @@
 import React from 'react'
 import styles from './ContentTable.module.css';
 import TableNav from './TableNav/TableNav'
-import {Switch, Route} from 'react-router-dom';
+import TableContent from '../../../Components/TableContent/TableContent'
 
-import CoinTable2 from './CoinTable/CoinTable2'
-import CoinTable from './CoinTable/CoinTable'
-import Exchange from '../../Exchange/Exchange';
+
 
 function ContentTable() {
 
@@ -19,15 +17,10 @@ function ContentTable() {
                 <TableNav/>
             </div>
             <div>
-                <CoinTable/>
+                <TableContent/>
             </div>
 
-            <Switch>
-                <Route path="/watchlist">
-                    <Exchange/>
-                </Route>
-            </Switch>
-
+            
 
         </div>
     )

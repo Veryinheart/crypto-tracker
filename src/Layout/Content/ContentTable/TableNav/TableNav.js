@@ -13,7 +13,7 @@ const placeholder = `<SearchOutlined /> Search`;
 
 function TableNav() {
   const { path, url } = useRouteMatch();
-  console.log(path,url);
+  // console.log(path,url);
   return (
     <div className={styles.container}>
       <div className={styles.Nav}>
@@ -22,24 +22,31 @@ function TableNav() {
             Watchlist
           </Button>
         </Link>
-        <Button shape="round" type="text">
-          Cryptocurrencies
-        </Button>
-        <Button shape="round" type="text">
-          Derivatives
-        </Button>
-        <Button shape="round" type="text">
-          DeFi
-        </Button>
+        <Link to={`${path}/`}>
+          <Button shape="round" type="text">
+            Cryptocurrencies
+          </Button>
+        </Link>
+        <Link to={`${path}/derivatives`}>
+          <Button shape="round" type="text">
+            Derivatives
+          </Button>
+        </Link>
+        <Link to={`${path}/defi`}>
+          <Button shape="round" type="text">
+            DeFi
+          </Button>
+        </Link>
+       
       </div>
       <div className={styles.search}>
         {/* <Input className={styles.input} placeholder="Borderless" bordered={false} /> */}
-        <Input
+        {/* <Input
           placeholder="Search"
           prefix={<SearchOutlined />}
           enterButton
           style={{ width: 200, margin: "0 10px" }}
-        />
+        /> */}
        
         {/* <TextField
           variant="outlined"
@@ -47,12 +54,12 @@ function TableNav() {
           size="small"
         /> */}
        
-        <span> Show Rows </span>
+        {/* <span> Show Rows </span>
         <Select defaultValue="50">
           <Option value="20">20</Option>
           <Option value="50">50</Option>
           <Option value="100">100</Option>
-        </Select>
+        </Select> */}
       </div>
     </div>
   );
