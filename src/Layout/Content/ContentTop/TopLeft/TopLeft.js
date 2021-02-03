@@ -41,7 +41,7 @@ function TopLeft(props) {
     return (
       <div key={expand.counter} className={styles.container}>
         <Typography>
-          <Title> Today's {} Prices by CoinGecko</Title>
+          <Title> Today's Global Prices by CoinGecko</Title>
           <Paragraph
             ellipsis={{
               rows: 3,

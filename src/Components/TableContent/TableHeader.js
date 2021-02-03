@@ -34,7 +34,7 @@ function TableHeader(props) {
             Name
           </TableSortLabel>
         </TableCell>
-        <TableCell>
+        <TableCell align="right">
           <TableSortLabel
             active={valueToOrderBy === "price"}
             direction={valueToOrderBy === "price" ? orderDirection : "asc"}
@@ -43,7 +43,7 @@ function TableHeader(props) {
             Price
           </TableSortLabel>
         </TableCell>
-        <TableCell>
+        <TableCell align="right">
           <TableSortLabel
             active={valueToOrderBy === "24h"}
             direction={valueToOrderBy === "24h" ? orderDirection : "asc"}
@@ -52,7 +52,7 @@ function TableHeader(props) {
             24h
           </TableSortLabel>
         </TableCell>
-        <TableCell>
+        <TableCell align="right">
           <TableSortLabel
             active={valueToOrderBy === "7d"}
             direction={valueToOrderBy === "7d" ? orderDirection : "asc"}
@@ -61,7 +61,7 @@ function TableHeader(props) {
             7d
           </TableSortLabel>
         </TableCell>
-        <TableCell>
+        <TableCell align="right">
           <TableSortLabel
             active={valueToOrderBy === "marketCap"}
             direction={valueToOrderBy === "marketCap" ? orderDirection : "asc"}
@@ -70,7 +70,7 @@ function TableHeader(props) {
             Market Cap
           </TableSortLabel>
         </TableCell>
-        <TableCell>
+        <TableCell align="right">
           <TableSortLabel
             active={valueToOrderBy === "volume"}
             direction={valueToOrderBy === "volume" ? orderDirection : "asc"}
@@ -79,7 +79,7 @@ function TableHeader(props) {
             Volume
           </TableSortLabel>
         </TableCell>
-        <TableCell>
+        <TableCell align="right" variant="head">
           <TableSortLabel
             active={valueToOrderBy === "supply"}
             direction={valueToOrderBy === "supply" ? orderDirection : "asc"}

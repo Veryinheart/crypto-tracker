@@ -6,12 +6,16 @@ import CurrenciesDropDown from "../../Components/Dropdown/CurrenciesDropDown";
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
+// import { useRouteMatch } from "react-router-dom";
 
 function Top() {
   const [TopData, setTopData] = useState({});
   const [btc, setBtc] = useState(0);
   const [percent, setPercent] = useState(0);
   // const [state, setstate] = useState(initialState)
+
+  // const { path, url } = useRouteMatch();
+  // console.log(path, url);
 
   useEffect(() => {
     //fetch top data

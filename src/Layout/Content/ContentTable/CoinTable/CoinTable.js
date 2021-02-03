@@ -97,7 +97,7 @@ function CoinTable() {
       setRecords([...temp]);
       // console.log(records);
     };
-    fetchTopData();
+    // fetchTopData();
     // const timer = setInterval(
     //   () => {
     //     console.log("object")

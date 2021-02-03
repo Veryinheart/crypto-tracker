@@ -21,8 +21,8 @@ export default function CellFont(props) {
   const { percentNum, value, id } = props;
   //   console.log(props.percentNum > 0);
 
-  //   console.log(value)
-  if (id && id === "name") {
+    // console.log(percentNum);
+  if (id && id==='name') {
     
     return (
       <div style={{display:"flex",justifyContent:"flex-start",alignItems:'center'}}>
@@ -55,7 +55,7 @@ export default function CellFont(props) {
             }}
           >
             <ArrowDropUpIcon />
-            {percentNum.toFixed(4)}%
+            {parseFloat(percentNum).toFixed(2)}%
           </strong>
         ) : (
           <strong
@@ -67,7 +67,7 @@ export default function CellFont(props) {
             }}
           >
             <ArrowDropDownIcon />
-            {percentNum.toFixed(4)}%
+            {parseFloat(percentNum).toFixed(2)}%
           </strong>
         )}
       </>

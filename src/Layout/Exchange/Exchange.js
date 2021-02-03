@@ -4,12 +4,13 @@ import styles from "./Exchange.module.css";
 
 function Exchange() {
     return (
-        <div className={styles.container}>
+      <div className={styles.container}>
       <div className={styles.top}>
         <ContentTop />
       </div>
       <div>
           <h1>exchange</h1>
+          <a href='/watchlist'>to watchlist</a>
       </div>
       {/* <div className={styles.table}>
         <ContentTable />

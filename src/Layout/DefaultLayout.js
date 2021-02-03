@@ -28,6 +28,9 @@ function DefaultLayout() {
         <Route path="/Trending">
           <Trending />
         </Route>
+        <Route path="/watchlist">
+          <Content/>
+        </Route>
       </Switch>
 
       <div>Footer</div>

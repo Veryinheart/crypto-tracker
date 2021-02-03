@@ -5,22 +5,25 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  TablePagination,
   TableContainer,
   Button,
+  FormControl,
+  Select,
+  MenuItem,
 } from "@material-ui/core";
 import axios from "axios";
 import { useEffect } from "react";
 
-import CellFont from '../CellFont/CellFont'
+import CellFont from "../CellFont/CellFont";
 import { StarBorder } from "@material-ui/icons";
+import Pagination from "@material-ui/lab/Pagination";
 
-const rowInformation = [
-  { name: "bobo", price: 20, rank: 1 },
-  { name: "alice", price: 241, rank: 2 },
-  { name: "kriran", price: 25, rank: 4 },
-  { name: "william", price: 30, rank: 3 },
-];
+// const rowInformation = [
+//   { name: "bobo", price: 20, rank: 1 },
+//   { name: "alice", price: 241, rank: 2 },
+//   { name: "kriran", price: 25, rank: 4 },
+//   { name: "william", price: 30, rank: 3 },
+// ];
 const descendingComparator = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -52,14 +55,19 @@ const sortedRowInformation = (rowArray, compatator) => {
 export default function TableContent() {
   const [orderDirection, setOrderDirection] = useState("desc");
   const [valueToOrderBy, setValueToOrderBy] = useState("");
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const [rowDataInfo, setRowDataInfo] = useState([]);
 
-  const handlePageChange = async (event) => {
-    setPage((prev) => prev + 1);
-    console.log(page);
+  const handlePageChange = async (event, page) => {
+    // console.log(page)
+    // console.log(event)
+    setPage(page);
+    // console.log(page);
+  };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(event.target.value);
   };
 
   useEffect(() => {
@@ -70,25 +78,25 @@ export default function TableContent() {
           `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc
           &per_page=${rowsPerPage}&page=${page}&sparkline=false&price_change_percentage=24h%2C7d`
         );
-        console.log(response.data);      
+        // console.log(response.data);
         rowData = response.data.map((el) => {
           const tempObj = {
-            "name": el.name,
-            "price": el.current_price,
-            "rank": el.market_cap_rank,
+            name: el.name,
+            price: el.current_price,
+            rank: el.market_cap_rank,
             "24h": el.price_change_percentage_24h_in_currency,
             "7d": el.price_change_percentage_7d_in_currency,
-            "marketCap": el.market_cap,
-            "volume":el.total_volume,
-            "supply":el.circulating_supply,
-            "image":el.image,
-            "symbol":el.symbol,
-            "total_supply":el.total_supply
+            marketCap: el.market_cap,
+            volume: el.total_volume,
+            image: el.image,
+            symbol: el.symbol,
+            total_supply: el.total_supply,
+            circulating_supply: el.circulating_supply,
           };
 
           return tempObj;
         });
-        console.log(rowData);
+        // console.log(rowData);
       } catch (error) {
         console.error(error);
       }
@@ -116,23 +124,60 @@ export default function TableContent() {
           {sortedRowInformation(
             rowDataInfo,
             getComparator(orderDirection, valueToOrderBy)
-          ).map((person, index) => (
-            <TableRow key={person.name}>
+          ).map((coin, index) => (
+            <TableRow key={coin.name}>
               <TableCell>
-                  <StarBorder/>
-                  {person.rank}
+                <StarBorder fontSize="small" />
+                {coin.rank}
               </TableCell>
-              <TableCell>{person.name}</TableCell>
-              <TableCell>{person.price}</TableCell>
-              <TableCell>{person['24h']}</TableCell>
-              <TableCell>{person['7d']}</TableCell>
-              <TableCell>{person.marketCap}</TableCell>
-              <TableCell>{person.volume}</TableCell>
-              <TableCell>{person.supply}</TableCell>
+              <TableCell align="left">
+                <CellFont value={[coin.name,coin.image,coin.symbol]} id={'name'}/>
+              </TableCell>
+              <TableCell align="right">
+                <CellFont value={coin.price} />
+              </TableCell>
+              <TableCell align="right">
+                <CellFont percentNum={coin["24h"]} />
+              </TableCell>
+              <TableCell align="right">
+                <CellFont percentNum={coin["7d"]} />
+              </TableCell>
+              <TableCell align="right">
+                <CellFont value={coin.marketCap} />
+              </TableCell>
+              <TableCell align="right">
+                <CellFont value={coin.volume} />
+              </TableCell>
+              <TableCell align="right">
+                <CellFont value={Math.ceil(coin.circulating_supply)} />
+                &nbsp;{coin["symbol"].toUpperCase()}
+              </TableCell>
             </TableRow>
           ))}
         </Table>
-        <Button onClick={handlePageChange}>next page</Button>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: "10px",
+          }}
+        >
+          <strong>
+            Showing {(page - 1) * rowsPerPage + 1} - {page * rowsPerPage} out of
+            6616
+          </strong>
+          <Pagination count={62} onChange={handlePageChange} shape="rounded" />
+          <FormControl>
+            <Select onChange={handleChangeRowsPerPage} value={rowsPerPage}>
+              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={20}>20</MenuItem>
+              <MenuItem value={50}>50</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
+        {/* <Button onClick={handlePageChange}>next page</Button> */}
       </TableContainer>
     </>
   );

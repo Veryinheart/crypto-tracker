@@ -13,26 +13,26 @@ const placeholder = `<SearchOutlined /> Search`;
 
 function TableNav() {
   const { path, url } = useRouteMatch();
-  // console.log(path,url);
+  console.log(path,url);
   return (
     <div className={styles.container}>
       <div className={styles.Nav}>
-        <Link to={`${path}/watchlist`}>
+        <Link to={`/watchlist`}>
           <Button icon={<StarOutlined />} shape="round" type="text">
             Watchlist
           </Button>
         </Link>
-        <Link to={`${path}/`}>
+        <Link to={`/`}>
           <Button shape="round" type="text">
             Cryptocurrencies
           </Button>
         </Link>
-        <Link to={`${path}/derivatives`}>
+        <Link to={`/derivatives`}>
           <Button shape="round" type="text">
             Derivatives
           </Button>
         </Link>
-        <Link to={`${path}/defi`}>
+        <Link to={`/defi`}>
           <Button shape="round" type="text">
             DeFi
           </Button>
